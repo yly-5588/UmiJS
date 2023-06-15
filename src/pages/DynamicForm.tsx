@@ -80,14 +80,13 @@ const DynamicForm = () => {
         noStyle
         shouldUpdate={(prevValues, currentValues) =>{
 
-          console.log( prevValues.typeName)
+          // console.log( prevValues.typeName)
           prevValues.typeName !== currentValues.typeName
           
         }
           
         }
       >
-       
         {
         
         ({ getFieldValue}) =>
@@ -101,8 +100,32 @@ const DynamicForm = () => {
             </Form.Item>
           ) : null
          
-        },
+        }
+       
+        
+      </Form.Item>
+      <Form.Item
+        noStyle
+        shouldUpdate={(prevValues, currentValues) =>{
+
+          // console.log( prevValues.typeName)
+          prevValues.typeName !== currentValues.typeName
+          
+        }
+          
+        }
+      >
+        {
+        
+        ({ getFieldValue}) =>
+          getFieldValue('typeName') == '文本'||getFieldValue('typeName') == '数字'  ? (
+            console.log(getFieldValue('typeName'))
+            
+          ) : null
          
+        }
+       
+        
       </Form.Item>
       <Form.Item name="empyty" label="是否允许为空" rules={[{ required: true }]}>
         <Input />
